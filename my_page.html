@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 地理信息科学</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0F172A',
+                        darker: '#0B1120',
+                        accent: '#06B6D4',
+                        light: '#E2E8F0'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow-glow {
+                text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
+            }
+            .border-glow {
+                box-shadow: 0 0 5px rgba(6, 182, 212, 0.5);
+            }
+            .hover-lift {
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+            .hover-lift:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(6, 182, 212, 0.2);
+            }
+            .scroll-fade {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.8s, transform 0.8s;
+            }
+            .scroll-fade.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .mobile-menu {
+                transition: max-height 0.3s ease, opacity 0.3s ease;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+            }
+            .mobile-menu.open {
+                max-height: 300px;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark text-light min-h-screen">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full bg-darker/80 backdrop-blur-sm z-50 border-b border-accent/20">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-accent font-bold text-xl text-shadow-glow">GIS 简历</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#banner" class="hover:text-accent transition-colors">首页</a>
+                <a href="#education" class="hover:text-accent transition-colors">教育经历</a>
+                <a href="#skills" class="hover:text-accent transition-colors">相关技能</a>
+                <a href="#projects" class="hover:text-accent transition-colors">项目经历</a>
+                <a href="#self-eval" class="hover:text-accent transition-colors">自我评价</a>
+            </div>
+            <button id="menuBtn" class="md:hidden text-accent focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-darker border-t border-accent/20">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#banner" class="hover:text-accent transition-colors py-2">首页</a>
+                <a href="#education" class="hover:text-accent transition-colors py-2">教育经历</a>
+                <a href="#skills" class="hover:text-accent transition-colors py-2">相关技能</a>
+                <a href="#projects" class="hover:text-accent transition-colors py-2">项目经历</a>
+                <a href="#self-eval" class="hover:text-accent transition-colors py-2">自我评价</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页Banner -->
+    <section id="banner" class="pt-24 pb-16 md:pt-32 md:pb-24 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(6,182,212,0.2),transparent_40%)]"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 border-2 border-accent/30 rounded-full opacity-30"></div>
+        </div>
+        <div class="container mx-auto relative z-10">
+            <div class="max-w-2xl">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-4">
+                    <span class="text-accent text-shadow-glow">地理信息科学</span><br>
+                    个人简历
+                </h1>
+                <p class="text-light/80 text-lg mb-8">西北农林科技大学 | 本科在读 | GIS/数据处理/建模</p>
+                <a href="#education" class="inline-block bg-accent/10 border border-accent text-accent px-6 py-3 rounded hover:bg-accent/20 transition-colors border-glow">
+                    查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育经历 -->
+    <section id="education" class="py-16 px-4 bg-darker">
+        <div class="container mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">
+                <span class="inline-block border-b-2 border-accent pb-2">教育经历</span>
+            </h2>
+            <div class="max-w-2xl mx-auto scroll-fade">
+                <div class="relative pl-8 border-l-2 border-accent/30">
+                    <div class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-accent"></div>
+                    <div class="mb-8">
+                        <div class="text-accent font-semibold">2023.09 - 2027.06</div>
+                        <div class="text-xl font-bold mb-2">西北农林科技大学</div>
+                        <div class="text-light/70">地理信息科学 | 本科</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 相关技能 -->
+    <section id="skills" class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">
+                <span class="inline-block border-b-2 border-accent pb-2">相关技能</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <div class="bg-darker/50 p-6 rounded-lg hover-lift scroll-fade">
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-map-marker text-accent text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">GIS应用能力</h3>
+                    </div>
+                    <p class="text-light/80">
+                        掌握ArcGIS基础操作，可独立完成矢量数据编辑、栅格数据裁剪与叠加分析，能独立完成区域土地利用现状、耕地地力评价等专题地图制作工作。
+                    </p>
+                </div>
+                <div class="bg-darker/50 p-6 rounded-lg hover-lift scroll-fade">
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-code text-accent text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">编程与数据处理</h3>
+                    </div>
+                    <p class="text-light/80">
+                        具备扎实的Python基础，能读懂基础代码逻辑，可熟练使用Pandas库进行数据清洗、NumPy库完成数组运算。
+                    </p>
+                </div>
+                <div class="bg-darker/50 p-6 rounded-lg hover-lift scroll-fade md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fa fa-file-text text-accent text-2xl mr-3"></i>
+                        <h3 class="text-xl font-semibold">其他辅助技能</h3>
+                    </div>
+                    <p class="text-light/80">
+                        掌握Office办公软件，可完成Excel数据统计、Word科研报告撰写。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目经历 -->
+    <section id="projects" class="py-16 px-4 bg-darker">
+        <div class="container mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">
+                <span class="inline-block border-b-2 border-accent pb-2">项目经历</span>
+            </h2>
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-dark/50 p-6 rounded-lg hover-lift scroll-fade">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold">地圈制图综合实习</h3>
+                            <div class="text-accent">2025.06 - 2025.07 | 队长</div>
+                        </div>
+                        <i class="fa fa-map text-accent text-2xl"></i>
+                    </div>
+                    <ul class="list-disc pl-5 text-light/80 space-y-2">
+                        <li>利用遥感影像进行人工目视解译，完成永寿县土地利用情况更新；</li>
+                        <li>结合野外土壤采样点数据，完成永寿县耕地地力等级评价及种植苹果适宜性评价；</li>
+                        <li>利用ArcGIS软件完成永寿县基础地理图件、土壤养分专题图等专题图制作；</li>
+                        <li>最后汇总成地图册一份，对永寿县耕地质量评价结果进行综合展示。</li>
+                    </ul>
+                </div>
+                <div class="bg-dark/50 p-6 rounded-lg hover-lift scroll-fade">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold">2025美国大学生数学建模大赛</h3>
+                            <div class="text-accent">2025.01 - 2025.02 | 建模手</div>
+                        </div>
+                        <i class="fa fa-calculator text-accent text-2xl"></i>
+                    </div>
+                    <p class="text-light/80">
+                        作为建模手参加2025美国大学生数学建模大赛，负责模型架构部分，运用主成分回归模型进行数据分析和预测，最终获得“S”奖；熟练掌握了马尔可夫预测、层次分析法评价等常用模型的应用。
+                    </p>
+                </div>
+                <div class="bg-dark/50 p-6 rounded-lg hover-lift scroll-fade">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold">2024年全国大学生数学竞赛</h3>
+                            <div class="text-accent">2024.09 - 2024.10</div>
+                        </div>
+                        <i class="fa fa-trophy text-accent text-2xl"></i>
+                    </div>
+                    <p class="text-light/80">
+                        参加2024年全国大学生数学竞赛获陕西省二等奖，在数据分析、模型构建等方面积累扎实数学基础，为后续参与农业遥感数据建模与反演研究提供理论支撑。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 自我评价 -->
+    <section id="self-eval" class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">
+                <span class="inline-block border-b-2 border-accent pb-2">自我评价</span>
+            </h2>
+            <div class="max-w-2xl mx-auto bg-darker/50 p-8 rounded-lg scroll-fade">
+                <ul class="space-y-4 text-light/80">
+                    <li class="flex">
+                        <i class="fa fa-check text-accent mt-1 mr-3"></i>
+                        <span>对农业遥感与生态遥感领域有强烈兴趣，已认真研读老师《农作物遥感识别与单产评估研究综述》一文，对老师的研究方向很感兴趣，渴望在实践中深化专业认知。</span>
+                    </li>
+                    <li class="flex">
+                        <i class="fa fa-check text-accent mt-1 mr-3"></i>
+                        <span>具备扎实的GIS与Python基础，学习能力强，愿意主动补学遥感算法、模型开发相关知识，希望从数据整理、代码辅助等基础工作做起。</span>
+                    </li>
+                    <li class="flex">
+                        <i class="fa fa-check text-accent mt-1 mr-3"></i>
+                        <span>责任心强，时间管理能力良好，可灵活协调学业与科研任务，能高效配合团队需求，确保任务按时完成。</span>
+                    </li>
+                </ul>
+                <div class="mt-8 pt-6 border-t border-accent/20">
+                    <div class="text-accent font-semibold mb-2">联系方式</div>
+                    <div class="text-light/70">邮箱：xxx@nwsuaf.edu.cn | 电话：13xxxxxxxxx</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-darker py-6 px-4 border-t border-accent/20">
+        <div class="container mx-auto text-center text-light/50">
+            <p>© 2025 个人简历 | 地理信息科学</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            // 切换图标
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // 点击移动端菜单项后关闭菜单
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuBtn.querySelector('i').classList.remove('fa-times');
+                menuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // 滚动渐显效果
+        window.addEventListener('scroll', () => {
+            const fadeElements = document.querySelectorAll('.scroll-fade');
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.85) {
+                    el.classList.add('active');
+                }
+            });
+        });
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>

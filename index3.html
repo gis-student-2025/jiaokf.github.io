@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>西北农林科技大学 - 校园风光</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#006633', // 西北农林科技大学校色
+            secondary: '#FFCC00',
+            neutral: {
+              100: '#F5F5F5',
+              200: '#E5E5E5',
+              300: '#D4D4D4',
+              400: '#A3A3A3',
+              500: '#737373',
+              600: '#525252',
+              700: '#404040',
+              800: '#262626',
+              900: '#171717',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Noto Serif SC', 'serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.25);
+      }
+      .parallax {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+    }
+  </style>
+</head>
+<body class="font-sans text-neutral-800">
+  <!-- 导航栏 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center space-x-2">
+        <div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center">
+          <span class="text-white font-bold text-xl">西农</span>
+        </div>
+        <span class="text-xl font-bold text-white text-shadow">西北农林科技大学</span>
+      </a>
+      
+      <!-- 桌面导航 -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="text-white hover:text-secondary transition-colors">首页</a>
+        <a href="#scenic" class="text-white hover:text-secondary transition-colors">校园风光</a>
+        <a href="#virtual" class="text-white hover:text-secondary transition-colors">虚拟游览</a>
+        <a href="#map" class="text-white hover:text-secondary transition-colors">校园地图</a>
+        <a href="#gallery" class="text-white hover:text-secondary transition-colors">全景画廊</a>
+        <a href="#contact" class="text-white hover:text-secondary transition-colors">联系我们</a>
+      </div>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+        <i class="fa fa-bars text-2xl"></i>
+      </button>
+    </nav>
+    
+    <!-- 移动端导航菜单 -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+      <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+        <a href="#home" class="text-primary hover:text-secondary transition-colors py-2">首页</a>
+        <a href="#scenic" class="text-primary hover:text-secondary transition-colors py-2">校园风光</a>
+        <a href="#virtual" class="text-primary hover:text-secondary transition-colors py-2">虚拟游览</a>
+        <a href="#map" class="text-primary hover:text-secondary transition-colors py-2">校园地图</a>
+        <a href="#gallery" class="text-primary hover:text-secondary transition-colors py-2">全景画廊</a>
+        <a href="#contact" class="text-primary hover:text-secondary transition-colors py-2">联系我们</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 英雄区域 -->
+  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="images2/背景.png" alt="西北农林科技大学全景" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black/50"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 z-10 text-center">
+      <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-white text-shadow-lg mb-6">
+        西北农林科技大学
+      </h1>
+      <p class="text-[clamp(1rem,3vw,1.5rem)] text-white text-shadow max-w-3xl mx-auto mb-10">
+        中国著名高等农业学府，校园环境优美，自然风光与人文景观交相辉映   ————西农大巡礼
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#scenic" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+          探索校园风光
+        </a>
+        <a href="#virtual" class="bg-white hover:bg-neutral-100 text-primary font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+          开始虚拟游览
+        </a>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#welcome" class="text-white text-4xl opacity-80 hover:opacity-100 transition-opacity">
+        <i class="fa fa-angle-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- 欢迎介绍 -->
+  <section id="welcome" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-6">欢迎来到西北农林科技大学</h2>
+          <p class="text-neutral-700 mb-6 leading-relaxed">
+            西北农林科技大学坐落于中国陕西省杨凌农业高新技术产业示范区，是教育部直属全国重点大学，国家"双一流"建设高校，"985工程"和"211工程"重点建设高校。
+          </p>
+          <p class="text-neutral-700 mb-6 leading-relaxed">
+            学校校园占地面积5657亩，校舍建筑面积91万平方米。校园内绿树成荫，四季花香，被誉为"花园式校园"。漫步校园，既能感受到浓厚的学术氛围，又能欣赏到优美的自然风光。
+          </p>
+          <div class="flex flex-wrap gap-4 mt-8">
+            <div class="flex items-center gap-2">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <i class="fa fa-tree text-primary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-neutral-800">花园式校园</h4>
+                <p class="text-sm text-neutral-600">绿化覆盖率达60%</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <i class="fa fa-university text-primary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-neutral-800">历史悠久</h4>
+                <p class="text-sm text-neutral-600">创建于1934年</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2 relative">
+          <img src="images2/banner.png" alt="西北农林科技大学校园风光" class="w-full h-auto rounded-xl shadow-xl">
+          <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg hidden md:block">
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 rounded-full overflow-hidden">
+                <img src="https://picsum.photos/id/64/200/200" alt="校园导游" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <p class="font-medium text-neutral-800">"校园环境非常优美，四季景色各异，特别是春季樱花盛开的时候，吸引了很多游客。"</p>
+                <p class="text-sm text-neutral-600 mt-1">— 李同学，生命科学学院</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 校园风光 -->
+  <section id="scenic" class="py-20 bg-neutral-100">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">校园风光</h2>
+        <p class="text-neutral-600 max-w-3xl mx-auto">探索西北农林科技大学的自然美景和人文景观，感受这座百年名校的独特魅力</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 景点卡片 1 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="images2/librariy" alt="西北农林科技大学图书馆" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-xl text-neutral-800">图书馆</h3>
+              <span class="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full">标志性建筑</span>
+            </div>
+            <p class="text-neutral-600 mb-4">西北农林科技大学图书馆由总馆、北校区分馆和专业分馆组成，馆藏文献资源丰富，是校园的标志性建筑之一。</p>
+            <div class="flex items-center text-sm text-neutral-500">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>南校区中心位置</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 景点卡片 2 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="images2/yinghuadadao.jpg" alt="西北农林科技大学樱花大道" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-xl text-neutral-800">樱花大道</h3>
+              <span class="bg-secondary/10 text-secondary text-xs font-bold px-3 py-1 rounded-full">春季美景</span>
+            </div>
+            <p class="text-neutral-600 mb-4">每年春季，樱花大道上的樱花竞相开放，形成一片粉色的海洋，吸引了众多师生和游客前来观赏拍照。</p>
+            <div class="flex items-center text-sm text-neutral-500">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>北校区主干道</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 景点卡片 3 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="images2/试验田.2" alt="西北农林科技大学试验田" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-xl text-neutral-800">农业试验田</h3>
+              <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">特色景观</span>
+            </div>
+            <p class="text-neutral-600 mb-4">作为农业大学，试验田是校园的特色景观之一。在这里，师生们开展各种农业科研项目，探索农业发展的新路径。</p>
+            <div class="flex items-center text-sm text-neutral-500">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>西校区</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 景点卡片 4 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="images2/西湖" alt="西北农林科技大学湖泊" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-xl text-neutral-800">小西湖</h3>
+              <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">休闲胜地</span>
+            </div>
+            <p class="text-neutral-600 mb-4">小西湖是校园内的人工湖，湖水清澈，周围绿树成荫，是师生们休闲散步的好去处。</p>
+            <div class="flex items-center text-sm text-neutral-500">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>南校区东侧</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 景点卡片 5 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="images2/教学楼群" alt="西北农林科技大学教学楼" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-xl text-neutral-800">教学楼群</h3>
+              <span class="bg-neutral-100 text-neutral-800 text-xs font-bold px-3 py-1 rounded-full">学术氛围</span>
+            </div>
+            <p class="text-neutral-600 mb-4">现代化的教学楼群，设施完备，为师生提供了良好的教学和学习环境，是校园学术氛围的重要组成部分。</p>
+            <div class="flex items-center text-sm text-neutral-500">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>南校区中部</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 景点卡片 6 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+          <div class="h-60 overflow-hidden">
+            <img src="images2/体育馆" alt="西北农林科技大学体育馆" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-3">
+              <h3 class="font-bold text-xl text-neutral-800">体育馆</h3>
+              <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">运动中心</span>
+            </div>
+            <p class="text-neutral-600 mb-4">体育馆是校园的运动中心，拥有先进的体育设施，不仅是学生锻炼身体的场所，也是举办各种体育赛事和活动的地方。</p>
+            <div class="flex items-center text-sm text-neutral-500">
+              <i class="fa fa-map-marker mr-2"></i>
+              <span>北校区南侧</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="#gallery" class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+          查看更多景点 <i class="fa fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 虚拟游览 -->
+  <section id="virtual" class="py-20 bg-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 transform origin-top-right z-0"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-6">虚拟校园游览</h2>
+          <p class="text-neutral-700 mb-6 leading-relaxed">
+            无法亲临校园？没关系，我们为您提供了沉浸式的虚拟校园游览体验。通过360度全景视图，您可以随时随地探索西北农林科技大学的每一个角落。
+          </p>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-4">
+              <div class="mt-1 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <i class="fa fa-check text-primary"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-neutral-800 mb-1">360°全景体验</h4>
+                <p class="text-neutral-600">身临其境地感受校园的每一处细节</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="mt-1 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <i class="fa fa-check text-primary"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-neutral-800 mb-1">交互式导览</h4>
+                <p class="text-neutral-600">自由选择游览路线和重点参观区域</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="mt-1 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <i class="fa fa-check text-primary"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-neutral-800 mb-1">景点解说</h4>
+                <p class="text-neutral-600">了解每个景点的历史和文化背景</p>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+            开始虚拟游览 <i class="fa fa-street-view ml-2"></i>
+          </a>
+        </div>
+        <div class="lg:w-1/2 relative">
+          <div class="rounded-xl overflow-hidden shadow-2xl relative">
+            <img src="images2/图书馆2.png" alt="虚拟校园预览" class="w-full h-auto">
+            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+              <button class="w-20 h-20 rounded-full bg-primary/90 hover:bg-primary flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                <i class="fa fa-play text-white text-3xl"></i>
+              </button>
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg">
+              <h4 class="font-bold text-neutral-800 mb-1">图书馆虚拟游览</h4>
+              <p class="text-sm text-neutral-600">探索西北农林科技大学图书馆的内部结构和丰富资源</p>
+            </div>
+          </div>
+          <div class="absolute -top-6 -right-6 bg-white p-4 rounded-lg shadow-lg hidden md:block">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-full overflow-hidden">
+                <img src="https://picsum.photos/id/91/200/200" alt="校园导游" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <p class="font-medium text-neutral-800 text-sm">"虚拟游览非常真实，让我提前感受到了校园的氛围。"</p>
+                <p class="text-xs text-neutral-600 mt-1">— 王同学，准大一新生</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 校园地图 -->
+  <section id="map" class="py-20 bg-neutral-100">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">校园地图</h2>
+        <p class="text-neutral-600 max-w-3xl mx-auto">探索西北农林科技大学的校园布局，了解各个建筑和景点的位置</p>
+      </div>
+      
+      <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+        <div class="relative h-[500px]">
+          <img src="images2/校园地图.jpg" alt="西北农林科技大学校园地图" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/10"></div>
+          
+          <!-- 地图标记点 -->
+          <div class="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
+            <button class="map-marker group relative">
+              <div class="w-6 h-6 rounded-full bg-primary border-2 border-white shadow-lg"></div>
+              <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-white p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity w-40">
+                <h5 class="font-bold text-neutral-800 text-sm">图书馆</h5>
+                <p class="text-xs text-neutral-600">南校区中心位置</p>
+              </div>
+            </button>
+          </div>
+          
+          <div class="absolute top-1/3 right-1/4 transform -translate-x-1/2 -translate-y-1/2">
+            <button class="map-marker group relative">
+              <div class="w-6 h-6 rounded-full bg-secondary border-2 border-white shadow-lg"></div>
+              <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-white p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity w-40">
+                <h5 class="font-bold text-neutral-800 text-sm">樱花大道</h5>
+                <p class="text-xs text-neutral-600">北校区主干道</p>
+              </div>
+            </button>
+          </div>
+          
+          <div class="absolute bottom-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2">
+            <button class="map-marker group relative">
+              <div class="w-6 h-6 rounded-full bg-green-500 border-2 border-white shadow-lg"></div>
+              <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-white p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity w-40">
+                <h5 class="font-bold text-neutral-800 text-sm">农业试验田</h5>
+                <p class="text-xs text-neutral-600">西校区</p>
+              </div>
+            </button>
+          </div>
+          
+          <div class="absolute bottom-1/4 right-1/3 transform -translate-x-1/2 -translate-y-1/2">
+            <button class="map-marker group relative">
+              <div class="w-6 h-6 rounded-full bg-blue-500 border-2 border-white shadow-lg"></div>
+              <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-white p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity w-40">
+                <h5 class="font-bold text-neutral-800 text-sm">小西湖</h5>
+                <p class="text-xs text-neutral-600">南校区东侧</p>
+              </div>
+            </button>
+          </div>
+        </div>
+        
+        <div class="p-6">
+          <div class="flex flex-wrap gap-4 mb-6">
+            <div class="flex items-center gap-2">
+              <div class="w-4 h-4 rounded-full bg-primary"></div>
+              <span class="text-sm text-neutral-700">教学区</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-4 h-4 rounded-full bg-secondary"></div>
+              <span class="text-sm text-neutral-700">生活区</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-4 h-4 rounded-full bg-green-500"></div>
+              <span class="text-sm text-neutral-700">科研区</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+              <span class="text-sm text-neutral-700">休闲区</span>
+            </div>
+          </div>
+          
+          <div class="flex flex-col md:flex-row gap-6">
+            <div class="md:w-1/2">
+              <h4 class="font-bold text-lg text-neutral-800 mb-3">校园导览</h4>
+              <p class="text-neutral-600 mb-4">
+                西北农林科技大学分为南校区、北校区和西校区三个主要区域，总占地面积5657亩。校园布局合理，功能分区明确，绿化覆盖率高。
+              </p>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2">
+                  <i class="fa fa-check-circle text-primary"></i>
+                  <span class="text-neutral-700">南校区：主要教学和行政区域</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa fa-check-circle text-primary"></i>
+                  <span class="text-neutral-700">北校区：生活区和部分教学设施</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa fa-check-circle text-primary"></i>
+                  <span class="text-neutral-700">西校区：农业科研和试验田</span>
+                </li>
+              </ul>
+            </div>
+            <div class="md:w-1/2">
+              <h4 class="font-bold text-lg text-neutral-800 mb-3">如何到达</h4>
+              <p class="text-neutral-600 mb-4">
+                学校位于陕西省杨凌农业高新技术产业示范区，交通便利。以下是几种主要的到达方式：
+              </p>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2">
+                  <i class="fa fa-train text-primary"></i>
+                  <span class="text-neutral-700">高铁：杨凌南站，下车后乘公交直达</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa fa-bus text-primary"></i>
+                  <span class="text-neutral-700">长途汽车：杨凌汽车站，步行可达</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i class="fa fa-plane text-primary"></i>
+                  <span class="text-neutral-700">飞机：西安咸阳国际机场，转乘高铁或大巴</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 全景画廊 -->
+  <section id="gallery" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">全景画廊</h2>
+        <p class="text-neutral-600 max-w-3xl mx-auto">欣赏西北农林科技大学四季美景的高清图片</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="gallery-item overflow-hidden rounded-xl group relative">
+          <img src="images2/02.jpg" alt="春季校园樱花" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+            <div class="p-4 w-full">
+              <h4 class="font-bold text-white text-lg">春季樱花</h4>
+              <p class="text-white/80 text-sm">每年三月至四月，校园樱花盛开</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item overflow-hidden rounded-xl group relative">
+          <img src="images2/05.png" alt="夏季校园绿树" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+            <div class="p-4 w-full">
+              <h4 class="font-bold text-white text-lg">夏季绿树</h4>
+              <p class="text-white/80 text-sm">绿树成荫的校园，清凉宜人</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item overflow-hidden rounded-xl group relative">
+          <img src="images2/09.jpg.wxdownload" alt="秋季校园银杏" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+            <div class="p-4 w-full">
+              <h4 class="font-bold text-white text-lg">秋季银杏</h4>
+              <p class="text-white/80 text-sm">金黄的银杏叶点缀校园，美不胜收</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item overflow-hidden rounded-xl group relative">
+          <img src="images2/10.jpg" alt="冬季校园雪景" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+            <div class="p-4 w-full">
+              <h4 class="font-bold text-white text-lg">冬季雪景</h4>
+              <p class="text-white/80 text-sm">银装素裹的校园，宁静而美丽</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item overflow-hidden rounded-xl group relative">
+          <img src="images2/11.jpg" alt="校园湖泊" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+            <div class="p-4 w-full">
+              <h4 class="font-bold text-white text-lg">小西湖</h4>
+              <p class="text-white/80 text-sm">校园内的人工湖，风景秀丽</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item overflow-hidden rounded-xl group relative">
+          <img src="images2/01.jpg" alt="校园建筑" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+            <div class="p-4 w-full">
+              <h4 class="font-bold text-white text-lg">教学楼群</h4>
+              <p class="text-white/80 text-sm">现代化的教学设施，学术氛围浓厚</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item overflow-hidden rounded-xl group relative">
+          <img src="images2/12.jpg" alt="校园花园" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+            <div class="p-4 w-full">
+              <h4 class="font-bold text-white text-lg">校园花园</h4>
+              <p class="text-white/80 text-sm">四季花卉盛开，香气四溢</p>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item overflow-hidden rounded-xl group relative">
+          <img src="images2/13.jpg" alt="校园小径" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+            <div class="p-4 w-full">
+              <h4 class="font-bold text-white text-lg">林荫小径</h4>
+              <p class="text-white/80 text-sm">宁静的校园小径，适合散步思考</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <button id="load-more" class="inline-flex items-center justify-center bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+          加载更多图片 <i class="fa fa-refresh ml-2"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我们 -->
+  <section id="contact" class="py-20 bg-neutral-100">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-1/2">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-6">联系我们</h2>
+          <p class="text-neutral-700 mb-8 leading-relaxed">
+            如果你对西北农林科技大学的校园风光有任何疑问，或者想了解更多关于校园参观的信息，欢迎通过以下方式联系我们。
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <i class="fa fa-map-marker text-primary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-neutral-800 mb-1">地址</h4>
+                <p class="text-neutral-600">陕西省杨凌农业高新技术产业示范区西农路22号</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <i class="fa fa-phone text-primary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-neutral-800 mb-1">电话</h4>
+                <p class="text-neutral-600">029-87091114 (总机)</p>
+                <p class="text-neutral-600">029-87091406 (招生办)</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <i class="fa fa-envelope text-primary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-neutral-800 mb-1">邮箱</h4>
+                <p class="text-neutral-600">info@nwafu.edu.cn</p>
+                <p class="text-neutral-600">zhaosheng@nwafu.edu.cn (招生)</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <i class="fa fa-clock-o text-primary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-neutral-800 mb-1">参观时间</h4>
+                <p class="text-neutral-600">周一至周五: 9:00 - 16:00 (需预约)</p>
+                <p class="text-neutral-600">周六至周日: 9:00 - 17:00 (无需预约)</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-8">
+            <h4 class="font-bold text-lg text-neutral-800 mb-4">关注我们</h4>
+            <div class="flex space-x-4">
+              <a href="#" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90 transition-colors">
+                <i class="fa fa-weixin"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90 transition-colors">
+                <i class="fa fa-weibo"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90 transition-colors">
+                <i class="fa fa-youtube-play"></i>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white hover:bg-primary/90 transition-colors">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="lg:w-1/2">
+          <div class="bg-white p-8 rounded-xl shadow-xl">
+            <h3 class="font-bold text-2xl text-neutral-800 mb-6">预约校园参观</h3>
+            <form id="contact-form" class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-neutral-700 mb-1">姓名</label>
+                  <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的姓名">
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-neutral-700 mb-1">邮箱</label>
+                  <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的邮箱">
+                </div>
+              </div>
+              
+              <div>
+                <label for="phone" class="block text-sm font-medium text-neutral-700 mb-1">电话</label>
+                <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的电话">
+              </div>
+              
+              <div>
+                <label for="visit-date" class="block text-sm font-medium text-neutral-700 mb-1">参观日期</label>
+                <input type="date" id="visit-date" name="visit-date" class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+              </div>
+              
+              <div>
+                <label for="message" class="block text-sm font-medium text-neutral-700 mb-1">留言</label>
+                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的留言或特殊需求"></textarea>
+              </div>
+              
+              <div>
+                <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg">
+                  提交预约 <i class="fa fa-paper-plane ml-2"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="bg-neutral-800 text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-6">
+            <div class="h-10 w-10 rounded-full bg-white flex items-center justify-center">
+              <span class="text-primary font-bold text-xl">西农</span>
+            </div>
+            <span class="text-xl font-bold">西北农林科技大学</span>
+          </div>
+          <p class="text-neutral-400 mb-6">
+            中国著名高等农业学府，校园环境优美，自然风光与人文景观交相辉映。
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fa fa-weixin text-xl"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fa fa-weibo text-xl"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fa fa-youtube-play text-xl"></i>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-white transition-colors">
+              <i class="fa fa-instagram text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6">快速链接</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">学校主页</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">招生信息</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">学科建设</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">师资力量</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">科学研究</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">学生生活</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6">校园服务</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">图书馆</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">体育馆</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">学生活动中心</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">餐饮服务</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">住宿服务</a></li>
+            <li><a href="#" class="text-neutral-400 hover:text-white transition-colors">医疗服务</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6">联系我们</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <i class="fa fa-map-marker mt-1 text-neutral-400"></i>
+              <span class="text-neutral-400">陕西省杨凌农业高新技术产业示范区西农路22号</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa fa-phone mt-1 text-neutral-400"></i>
+              <span class="text-neutral-400">029-87091114</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa fa-envelope mt-1 text-neutral-400"></i>
+              <span class="text-neutral-400">info@nwafu.edu.cn</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa fa-clock-o mt-1 text-neutral-400"></i>
+              <span class="text-neutral-400">周一至周五: 8:00 - 17:00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-neutral-700 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-neutral-500 text-sm mb-4 md:mb-0">
+            © 2025 西北农林科技大学. 保留所有权利.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-neutral-500 hover:text-white text-sm transition-colors">隐私政策</a>
+            <a href="#" class="text-neutral-500 hover:text-white text-sm transition-colors">使用条款</a>
+            <a href="#" class="text-neutral-500 hover:text-white text-sm transition-colors">网站地图</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary hover:bg-primary/90 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transform translate-y-20 opacity-0 transition-all duration-300">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    const backToTopBtn = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        navbar.classList.add('bg-white', 'shadow-md');
+        navbar.classList.remove('bg-transparent');
+        document.querySelectorAll('#navbar a').forEach(link => {
+          link.classList.remove('text-white');
+          link.classList.add('text-primary');
+        });
+        document.querySelector('#navbar .fa-bars').classList.remove('text-white');
+        document.querySelector('#navbar .fa-bars').classList.add('text-primary');
+        backToTopBtn.classList.remove('translate-y-20', 'opacity-0');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md');
+        navbar.classList.add('bg-transparent');
+        document.querySelectorAll('#navbar a').forEach(link => {
+          link.classList.add('text-white');
+          link.classList.remove('text-primary');
+        });
+        document.querySelector('#navbar .fa-bars').classList.add('text-white');
+        document.querySelector('#navbar .fa-bars').classList.remove('text-primary');
+        backToTopBtn.classList.add('translate-y-20', 'opacity-0');
+      }
+    });
+    
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // 关闭移动菜单
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        }
+      });
+    });
+    
+    // 回到顶部
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // 加载更多图片按钮
+    const loadMoreBtn = document.getElementById('load-more');
+    
+    loadMoreBtn.addEventListener('click', function() {
+      this.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> 加载中...';
+      
+      // 模拟加载延迟
+      setTimeout(() => {
+        this.innerHTML = '加载更多图片 <i class="fa fa-refresh ml-2"></i>';
+        alert('已加载全部图片');
+      }, 1500);
+    });
+    
+    // 表单提交
+    const contactForm = document.getElementById('contact-form');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = this.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> 提交中...';
+      
+      // 模拟表单提交
+      setTimeout(() => {
+        submitBtn.innerHTML = '<i class="fa fa-check mr-2"></i> 提交成功!';
+        submitBtn.classList.remove('bg-primary');
+        submitBtn.classList.add('bg-green-600');
+        
+        // 重置表单
+        contactForm.reset();
+        
+        // 恢复按钮状态
+        setTimeout(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+          submitBtn.classList.add('bg-primary');
+          submitBtn.classList.remove('bg-green-600');
+        }, 3000);
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
+    
